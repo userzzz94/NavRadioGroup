@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="activity.huafeng.com.navradiogroup.MainActivity">
+
+    <!--
+        直接在RadioButton里面设置未读消息,
+        不好测量且会与RadioButton的点击发生冲突,
+        使用自定义的TipButton实现未读消息是小圆点的,
+        使用帧布局将RadioGroup和TextView包裹,
+        然后进行测量TextView的宽 -->
+    
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:minHeight="48dp"
+        >
+
+        <RadioGroup
+            android:id="@+id/group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:orientation="horizontal"
+            >
+
+
+
+            <activity.huafeng.com.navradiogroup.view.TipButton
+                android:id="@+id/tab_rb_news"
+                style="@style/activity_main_radiobutton_style"
+                android:button="@null"
+                android:text="消息" />
+
+            <activity.huafeng.com.navradiogroup.view.TipButton
+                android:id="@+id/tab_rb_discover"
+                android:button="@null"
+                style="@style/activity_main_radiobutton_style"
+                android:text="发现" />
+
+
+            <activity.huafeng.com.navradiogroup.view.TipButton
+                android:id="@+id/tab_rb_service"
+                android:button="@null"
+                style="@style/activity_main_radiobutton_style"
+
+                android:text="服务" />
+
+            <activity.huafeng.com.navradiogroup.view.TipButton
+                android:id="@+id/tab_rb_myself"
+                style="@style/activity_main_radiobutton_style"
+                android:button="@null"
+                android:text="我的" />
+
+        </RadioGroup>
+
+        <activity.huafeng.com.navradiogroup.view.DragPointView
+            android:id="@+id/dpv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left|center"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="3dp"
+            android:backgroundTint="@color/red"
+            android:gravity="center"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:text="10"
+            android:textColor="#ffffffff"
+            android:textSize="11sp" />
+
+    </FrameLayout>
+    
+
+</LinearLayout>
